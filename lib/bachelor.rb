@@ -2,18 +2,14 @@ require 'pry'
 
 
 def get_first_name_of_season_winner(data, season)
-  season = data["#{season}"]
-  result = season.find {|x| x["status"] == "Winner"}["name"]
-  result.split(' ').first
+  season = data["#{season}"].find {|x| x["status"] == "Winner"}["name"].split(' ').first
 end
 
 def get_contestant_name(data, occupation)
   result = nil 
   data.each do |season, contestant|
     result = contestant.find{|x| x["occupation"] == occupation}
-    if result
-      return result["name"]
-    end
+    return result["name"] if result
   end
 end
 
