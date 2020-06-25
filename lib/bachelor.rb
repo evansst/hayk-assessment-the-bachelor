@@ -1,6 +1,5 @@
 require 'pry'
 
-
 def all_contestants(data)
   data.reduce([]) do |contestants, season|
     contestants << season[1]
